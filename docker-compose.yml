@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  uplift:
+    image: uplift
+    build:
+      context: ./Uplift
+      dockerfile: Dockerfile
