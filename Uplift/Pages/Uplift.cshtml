@@ -1,0 +1,182 @@
+﻿@page
+@model UpliftModel
+@{
+}
+<br />
+<br />
+<br />
+<br />
+<div style="text-align:center">
+    <p id="upliftTitle"> Welcome Friend, what would you like to do today?</p>
+    <br />
+    <br />
+    <p id="response" class="responsetype"></p>
+    <div id="gifspace">
+
+    </div>
+    <br />
+    <br />
+
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+
+<script>
+    if (annyang) {
+        // define the functions our commands will run.
+        var getStarted = function () {
+            window.location.href = 'https://github.com/TalAter/annyang';
+        }
+        var commands = {
+            //HELLO 
+            'hello': function () {
+                document.getElementById("response").innerHTML = "Hello To You Too.";
+                document.body.style.backgroundColor = "#D3DCE6";
+                document.body.style.color = "black";
+            },
+
+            'hi': function () {
+                document.getElementById("response").innerHTML = "Hi.";
+                document.body.style.backgroundColor = "#D3DCE6";
+                document.body.style.color = "black";
+            },
+
+            'hey': function () {
+                document.getElementById("response").innerHTML = "Hey There!!";
+                document.body.style.backgroundColor = "#D3DCE6";
+                document.body.style.color = "black";
+            },
+
+            //GOODBYE
+            'goodbye': function () {
+                document.getElementById("response").innerHTML = "Okay Goodbye Then";
+                document.body.style.backgroundColor = "#3C4858";
+                document.body.style.color = "white";
+                
+            },
+            'bye': function () {
+                document.getElementById("response").innerHTML = "Okay Bye Then";
+                document.body.style.backgroundColor = "#3C4858";
+                document.body.style.color = "white";
+                
+            },
+            'i am leaving': function () {
+                document.getElementById("response").innerHTML = "Okay I'll Leave You To It";
+                document.body.style.backgroundColor = "#3C4858";
+                document.body.style.color = "white";
+                
+            },
+            'i am signing off': function () {
+                document.getElementById("response").innerHTML = "See You Later";
+                document.body.style.backgroundColor = "#3C4858";
+                document.body.style.color = "white";
+                
+            },
+
+
+            //SADNESS
+            'i am not happy': function () {
+                document.body.style.backgroundColor = "#7E5BEF"
+                document.body.style.color = "white";
+                document.getElementById("response").innerHTML = "Maybe I can cheer you up.";
+                var gifstuff = $.get("http://api.giphy.com/v1/gifs/search?q=funnycats&api_key=cAPySsSWxtT5Z1hrGvZvBS1pSWLeznLK&limit=1");
+                gifstuff.done(function (data) {
+                    //console.log(data);
+                    document.getElementById("response").innerHTML += `<br><img src = "${data.data[0].images.fixed_height.url}" />`;
+                });
+            },
+            'i am feeling sad': function () {
+                document.body.style.backgroundColor = "#7E5BEF"
+                document.body.style.color = "white";
+                document.getElementById("response").innerHTML = "Maybe I can cheer you up.";
+                var gifstuff = $.get("http://api.giphy.com/v1/gifs/search?q=funnyanimals&api_key=cAPySsSWxtT5Z1hrGvZvBS1pSWLeznLK&limit=1");
+                gifstuff.done(function (data) {
+                    //console.log(data);
+                    document.getElementById("response").innerHTML += `<br><img src = "${data.data[0].images.fixed_height.url}" />` ;
+                });
+                
+            },
+
+            //HAPPINESS
+            'i am feeling happy': function () {
+                document.body.style.backgroundColor = "#13CE66";
+                document.body.style.color = "white";
+                document.getElementById("response").innerHTML = "I'm glad you are happy.";
+                var gifstuff = $.get("http://api.giphy.com/v1/gifs/search?q=happy&api_key=cAPySsSWxtT5Z1hrGvZvBS1pSWLeznLK&limit=1");
+                gifstuff.done(function (data) {
+                    //console.log(data);
+                    document.getElementById("response").innerHTML += `<br><img src = "${data.data[0].images.fixed_height.url}" />`;
+                });
+                
+            },
+
+            //ANXIETY
+            'i am feeling anxious': function () {
+                document.body.style.backgroundColor = "#d998cb";
+                document.body.style.color = "white";
+                var gifstuff = $.get("http://api.giphy.com/v1/gifs/search?q=happy&api_key=cAPySsSWxtT5Z1hrGvZvBS1pSWLeznLK&limit=1");
+                gifstuff.done(function (data) {
+                    document.getElementById("response").innerHTML = '<span>' + "I'm sorry to hear that." + '</span> <span>' + "Stop for a second." + '</span> <span>' +
+                        "Focus on your breathing for a second & slow down with this animation" + '</span><br><br>'+`<div><img src = "https://i.imgur.com/uqKFUs2.gif" /></div>`;
+                });
+            },
+
+            //HOW ARE YOU
+            'how are you': function () {
+                document.getElementById("response").innerHTML = "Let's talk about what you are feeling today";
+                document.body.style.backgroundColor = "#D3DCE6";
+                document.body.style.color = "black";
+            },
+
+
+            //WHAT ARE YOU
+            'what are you': function () {
+                document.getElementById("response").innerHTML = "I'm a bot recognizing your speech";
+                document.body.style.backgroundColor = "#D3DCE6";
+                document.body.style.color = "black";
+            },
+
+            //WHO ARE YOU
+            'who are you': function () {
+                document.getElementById("response").innerHTML = "I'm Uplift, a chat bot";
+                document.body.style.backgroundColor = "#D3DCE6";
+                document.body.style.color = "black";
+            },
+
+            //WHAT IS YOUR NAME
+            'what is your name': function () {
+                document.getElementById("response").innerHTML = "I'm Uplift, a bot created by my maker";
+                document.body.style.backgroundColor = "#D3DCE6";
+                document.body.style.color = "black";
+            },
+
+            //WHO CREATED YOU
+            'who created you': function () {
+                document.getElementById("response").innerHTML = "I was created by my maker.";
+                document.body.style.backgroundColor = "#D3DCE6";
+                document.body.style.color = "black";
+            },
+
+            //EXCUSE ME
+            'excuse me': function () {
+                document.getElementById("response").innerHTML = "Excuse you too.";
+                document.body.style.backgroundColor = "#D3DCE6";
+                document.body.style.color = "black";
+            },
+        };
+
+        // Add our commands to annyang
+        annyang.addCommands(commands);
+
+        // OPTIONAL: activate debug mode for detailed logging in the console
+        annyang.debug();
+        // OPTIONAL: Set a language for speech recognition (defaults to English)
+        annyang.setLanguage('en');
+        // Start listening. You can call this here, or attach this call to an event, button, etc.
+        annyang.start({ autoRestart: true, continuous: false });
+    } else {
+        $(document).ready(function () {
+            $('#unsupported').fadeIn('fast');
+        });
+    }
+
+</script>

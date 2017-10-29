@@ -1,6 +1,14 @@
+@font-face{
+    font-family:Libel;
+    src:url("/fonts/libel-suit-rg.ttf")format('truetype');
+}
+
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    transition: background-color 1s ease;
+    display: flex;
+    font-family:Libel;
 }
 
 /* Wrapping element */
@@ -10,26 +18,38 @@ body {
     padding-right: 15px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+#upliftTitle{
+    font-size:2em;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
+#response {
+    font-size: 2em;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+#gifspace{
+
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
+#AboutTitle{
+    text-align:center;
+    font-size:3em;
+}
+
+#AboutText{
+    text-align:center;
+    font-size:1em;
+}
+
+#ContactText {
+    text-align: center;
+    font-size: 2em;
+}
+
+#ContactTitle {
+    text-align: center;
+    font-size: 3em;
+}
+
+#IndexText {
+    font-size: 2em;
 }
